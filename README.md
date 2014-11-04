@@ -24,7 +24,6 @@ You should see no failed services here. Now for the cluster:
 
 ```
 $ fleetctl list-machines -l
-fleetctl list-machines -l
 MACHINE					IP		METADATA
 2993aec374654ef39d8b408f74716c0e	192.168.33.10	az=eu-central-1b,region=eu-central-1
 37568b8d74794355b936643f790b070a	192.168.33.9	az=eu-central-1a,region=eu-central-1

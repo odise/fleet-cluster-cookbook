@@ -22,15 +22,8 @@ default['fleet']['home'] = '/home/core'
 default['fleet']['config']['net_interface'] = node[:ipaddress]
 default['fleet']['config']['metadata'] = "region=eu-central-1,az=eu-central-1a"
 
-#default['docker']['install_type'] = "binary"
-#default['docker']['binary']['version'] = "latest"
 default['docker']['graph'] = "/data/docker"
-#default['docker']['iptables'] = false
 default['docker']['package']['name'] = "docker"
 default['docker']['version'] = "0.11.1-22.el7.centos"
 #default['docker']['version'] = "1.1.2-13.el7"
 default['docker']['init_type'] = 'systemd'
-
-default['axelspringer-base']['proxy']['enabled'] = true
-default['axelspringer-base']['dmz'] = true
-
