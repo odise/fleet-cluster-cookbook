@@ -1,6 +1,6 @@
 DEPENDENCIES
   docker
-  docker-host
+  fleet-cluster
     path: .
     metadata: true
 
@@ -33,10 +33,10 @@ GRAPH
     runit (>= 0.0.0)
     sysctl (>= 0.0.0)
     yum-epel (>= 0.0.0)
-  docker-host (0.1.0)
+  dpkg_autostart (0.1.12)
+  fleet-cluster (0.1.0)
     ark (>= 0.0.0)
     docker (>= 0.0.0)
-  dpkg_autostart (0.1.12)
   git (4.0.2)
     build-essential (>= 0.0.0)
     dmg (>= 0.0.0)

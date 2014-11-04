@@ -6,12 +6,12 @@ if (node["current_user"].to_s.include? "vagrant")
   end
 end
 
-include_recipe "docker-host::ssh"
+include_recipe "fleet-cluster::ssh"
 include_recipe "docker"
-include_recipe "docker-host::etcd5"
-include_recipe "docker-host::fleet"
+include_recipe "fleet-cluster::etcd5"
+include_recipe "fleet-cluster::fleet"
 
-include_recipe "docker-host::test_service"
+include_recipe "fleet-cluster::test_service"
 
 service "firewalld" do
   provider Chef::Provider::Service::Systemd
