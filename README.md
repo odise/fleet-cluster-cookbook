@@ -101,23 +101,17 @@ Nov 04 11:41:44 peer-centos7.vagrantup.com docker[4639]: Hello World
 Nov 04 11:41:45 peer-centos7.vagrantup.com docker[4639]: Hello World
 Nov 04 11:41:46 peer-centos7.vagrantup.com docker[4639]: Hello World
 ```
+## Recipes
+
+## Recipes
+| Name | Description |
+|:-----|:------------|
+| `default` | Install and setup the service
 
 ## Attributes
 
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['fleet-cluster']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+| attribute | default setting | description |
+|:---------------------------------|:---------------|:-----------------------------------------|
 
 ## Usage
 
