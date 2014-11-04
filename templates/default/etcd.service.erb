@@ -1,0 +1,11 @@
+[Unit]
+Description=etcd
+
+[Service]
+<% @environment.each do |key, value| -%>
+Environment=<%= key %>=<%= value %>
+<% end %>
+ExecStart=/usr/local/bin/etcd
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,56 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+  environments_path: './environments/'
+  roles_path: './roles/'
+
+platforms:
+  - name: centos7
+    driver:
+      box: "matyunin/centos7"
+      network:
+      - ["private_network", {ip: "192.168.33.9"}]
+      customize:
+        memory: 2024
+        natdnshostresolver1: "on"
+        natdnsproxy1: "on"
+
+suites:
+  - name: default
+    run_list:
+      - recipe[docker-host::default]
+    data_bags_path: "./data_bags" 
+    attributes: 
+      etcd:
+        config:
+          ipaddress:
+            "192.168.33.9"
+          name:
+            "infra0"
+      fleet:
+        config:
+          net_interface:
+            "192.168.33.9"
+
+  - name: peer
+    driver:
+      network:
+      - ["private_network", {ip: "192.168.33.10"}]
+    run_list:
+      - recipe[docker-host::default]
+    attributes: 
+      etcd:
+        config:
+          ipaddress:
+            "192.168.33.10"
+          name:
+            "infra1"
+      fleet:
+        config:
+          net_interface:
+            "192.168.33.10"
+          metadata: "region=eu-central-1,az=eu-central-1b"
+

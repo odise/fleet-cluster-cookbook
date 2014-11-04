@@ -1,0 +1,14 @@
+[Unit]
+Description=fleet
+
+[Service]
+Environment=FLEET_PUBLIC_IP=<%= @config[:net_interface] %>
+<%- if @config[:metadata] %>
+Environment=FLEET_METADATA=<%= @config[:metadata] %>
+<%- end %>
+ExecStart=/usr/local/bin/fleetd
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
