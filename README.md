@@ -1,6 +1,6 @@
 # fleet-cluster-cookbook
 
-A working example on how to setup a two machine Vagrant box cluster using fleet version 0.5.0.
+A working example on how to setup a two machine Vagrant box cluster using etcd version 0.5.0alpha, fleet 0.8.3 and systemd.
 
 ## Supported Platforms
 

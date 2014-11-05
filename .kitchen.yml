@@ -6,13 +6,14 @@ provisioner:
   name: chef_solo
   environments_path: './environments/'
   roles_path: './roles/'
+  data_bags_path: "./data_bags" 
+  #solo_rb:
+    #environment: "proxy"
 
 platforms:
   - name: centos7
     driver:
       box: "matyunin/centos7"
-      network:
-      - ["private_network", {ip: "192.168.33.9"}]
       customize:
         memory: 2024
         natdnshostresolver1: "on"
@@ -20,9 +21,13 @@ platforms:
 
 suites:
   - name: default
+    driver:
+      network:
+      - ["private_network", {ip: "192.168.33.9"}]
     run_list:
+      #- role[discovery]
+      - role[static]
       - recipe[fleet-cluster::default]
-    data_bags_path: "./data_bags" 
     attributes: 
       etcd:
         config:
@@ -40,6 +45,8 @@ suites:
       network:
       - ["private_network", {ip: "192.168.33.10"}]
     run_list:
+      #- role[discovery]
+      - role[static]
       - recipe[fleet-cluster::default]
     attributes: 
       etcd:

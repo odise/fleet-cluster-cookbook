@@ -1,8 +1,10 @@
 package "net-tools"
 
+# regenerate the machine-id file once as we use an VB image here
 if (node["current_user"].to_s.include? "vagrant")
   execute "machine-id" do
-    command "rm /etc/machine-id && systemd-machine-id-setup"
+    command "mv /etc/machine-id /etc/machine-id.old && systemd-machine-id-setup"
+    not_if { ::File.exists?("/etc/machine-id.old")}
   end
 end
 
